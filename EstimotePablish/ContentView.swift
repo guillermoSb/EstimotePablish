@@ -16,8 +16,8 @@ struct ContentView: View {
         
         VStack {
             Text("Distance 1 \(uwb.distance1)")
-            Text("Distance 2 \(13)")
-            Text("Distance 3 \(13)")
+            Text("Distance 2 \(uwb.distance2)")
+            Text("Distance 3 \(uwb.distance3)")
         }
         Text("Estimote UWB")
             .padding()
