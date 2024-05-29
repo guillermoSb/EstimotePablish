@@ -11,13 +11,17 @@ import EstimoteUWB
 struct ContentView: View {
     @ObservedObject
     var uwb = EstimoteUWBManagerExample()
-    
     var body: some View {
         
         VStack {
             Text("Distance 1 \(uwb.distance1)")
             Text("Distance 2 \(uwb.distance2)")
             Text("Distance 3 \(uwb.distance3)")
+            
+            HStack {
+                Text("X: \(uwb.x)")
+                Text("Y: \(uwb.y)")
+            }
         }
         Text("Estimote UWB")
             .padding()
@@ -39,6 +43,8 @@ class EstimoteUWBManagerExample: NSObject, ObservableObject {
     @Published var distance1: Float = 0.0
     @Published var distance2: Float = 0.0
     @Published var distance3: Float = 0.0
+    @Published var x: Float = 0.0
+    @Published var y: Float = 0.0
 
     override init() {
         super.init()
@@ -72,8 +78,9 @@ extension EstimoteUWBManagerExample: EstimoteUWBManagerDelegate {
         default:
             break
         }
-        print(distance3)
-        
+        // calcular x,y
+        x = 0
+        y = 0
         
     }
     
